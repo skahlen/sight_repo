@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>AR.js Basic Projected Camera Example</title>
+        <title>Demo</title>
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
         <!-- Look-at component. We don't need this now, but we will later. -->
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     </head>
     <body>
-    <a-scene
-        vr-mode-ui="enabled: false"
-        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
-        renderer='antialias: true; alpha: true'>
-            <a-camera gps-projected-camera rotation-reader></a-camera>
-            <a-box gps-projected-entity-place='latitude: 1.2890118548566165; longitude: 103.77540478101307' material='color: red' scale='10 10 10'></a-box>
-        </a-scene>
+		<a-scene
+			vr-mode-ui="enabled: false"
+			arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
+			renderer='antialias: true; alpha: true'>
+				<a-camera gps-projected-camera rotation-reader></a-camera>
+				<a-sphere gps-projected-entity-place='latitude: 1.28901185; longitude: 103.77540478' material='color: blue' scale='10 10 10'></a-sphere>
+		</a-scene>
     </body>
 </html>
