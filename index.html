@@ -4,8 +4,8 @@
 	
         <title>Demo</title>
 		
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--meta charset="utf-8" /-->
+		<!--meta http-equiv="X-UA-Compatible" content="IE=edge" /-->
 		
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
@@ -15,19 +15,31 @@
 	
     <body>
 	
-		<a-scene
-		  vr-mode-ui="enabled: false"
-		  embedded
-		  arjs="sourceType: webcam; debugUIEnabled: false;"
-		>
-		  <a-text
-			value="Hello !"
-			look-at="[gps-camera]"
-			scale="120 120 120"
-			gps-entity-place="latitude: 1.28901185; longitude: 103.77540478;"
-		  ></a-text>
-		  <a-camera gps-camera rotation-reader> </a-camera>
+		<a-scene embedded arjs>
+		  <a-marker preset="hiro">
+			<a-entity
+			  position="0 0 0"
+			  scale="0.05 0.05 0.05"
+			  gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+			></a-entity>
+		  </a-marker>
+		  <a-entity camera></a-entity>
 		</a-scene>
+	
+	
+	
+		<!--a-scene
+			vr-mode-ui="enabled: false"
+			embedded
+			arjs="sourceType: webcam; debugUIEnabled: false;">
+			<a-text
+				value="Hello !"
+				look-at="[gps-camera]"
+				scale="120 120 120"
+				gps-entity-place="latitude: 1.28901185; longitude: 103.77540478;">
+			</a-text>
+			<a-camera gps-camera rotation-reader> </a-camera>
+		</a-scene-->
 		
     </body>
 </html>
