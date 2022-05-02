@@ -1,65 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
+	
         <title>Demo</title>
+		
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-        <!-- Look-at component. We don't need this now, but we will later. -->
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    
-		<style>
-		  .arjs-loader {
-			height: 100%;
-			width: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			background-color: rgba(0, 0, 0, 0.8);
-			z-index: 9999;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		  }
-
-		  .arjs-loader div {
-			text-align: center;
-			font-size: 1.25em;
-			color: white;
-		  }
-		</style>
 	
 	</head>
+	
     <body>
-		<!-- minimal loader shown until image descriptors are loaded -->
-		<div class="arjs-loader">
-			<div>Loading, please wait...</div>
-		</div>
 	
 		<a-scene
 			vr-mode-ui="enabled: false"
-			arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
-			renderer='antialias: true; alpha: true'>
+			arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+			renderer="antialias: true; alpha: true">
 				<a-camera gps-projected-camera rotation-reader></a-camera>
-				<a-sphere gps-projected-entity-place='latitude: 1.28901185; longitude: 103.77540478' material='color: blue' scale='10 10 10'></a-sphere>
-				<a-cylinder gps-projected-entity-place='latitude: 1.28901185; longitude: 103.77540478' material='color: red' scale='5 5 30'></a-cylinder>
-		
-			<!-- we use cors proxy to avoid cross-origin problems -->
-			<a-nft
-			  type="nft"
-			  url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
-			  smooth="true"
-			  smoothCount="10"
-			  smoothTolerance=".01"
-			  smoothThreshold="5"
-			>
-			  <a-entity
-				gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-				scale="5 5 5"
-				position="50 150 0"
-			  >
-			  </a-entity>
-			</a-nft>
-		
+				
+				<a-text
+					value="This content will always face you."
+					look-at="[gps-camera]"
+					scale="120 120 120"
+					gps-entity-place="latitude: 1.28901185; longitude: 103.77540478">
+				</a-text>
 		</a-scene>
+		
     </body>
 </html>
